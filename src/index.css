@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  @media (min-width: 1800px) {
+    html {
+      font-size: 112.5%;
+    }
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    line-height: 1.55;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(900px 480px at 82% -10%, color-mix(in srgb, theme('colors.accent.DEFAULT') 16%, transparent), transparent 65%),
+      linear-gradient(180deg, color-mix(in srgb, theme('colors.accent.soft') 60%, theme('colors.canvas')) 0%, theme('colors.canvas') 340px);
+    background-repeat: no-repeat;
+  }
+  img, svg, video {
+    max-width: 100%;
+    height: auto;
+  }
+  ::selection {
+    background: theme('colors.accent.DEFAULT');
+    color: theme('colors.canvas');
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[920px] px-6 max-sm:px-[18px] max-[420px]:px-3.5 xl:max-w-[1040px] min-[1800px]:max-w-[1200px];
+  }
+  .label {
+    @apply font-mono text-xs tracking-[.02em] text-muted;
+  }
+  .section-title {
+    @apply mb-7 font-heading text-[21px] font-semibold sm:text-2xl xl:text-[28px];
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media print {
+  header { position: static !important; }
+}
