@@ -4,7 +4,7 @@ export default function TimelineRole({ role }) {
     <div data-role data-reveal className="relative mb-[38px] last:mb-0 [overflow-wrap:anywhere]">
       <span
         data-dot
-        className="absolute -left-[26px] top-[5px] size-[9px] rounded-full border-2 border-canvas bg-accent shadow-[0_0_0_1px_#38BDF8] max-sm:-left-[22px]"
+        className="absolute -left-[26px] top-[5px] size-[9px] rounded-full border-2 border-canvas bg-accent shadow-[0_0_0_1px_rgb(var(--color-accent))] max-sm:-left-[22px]"
       />
       <div className="mb-1 font-mono text-[12.5px] text-muted">{period}</div>
       <h3 className="mb-0.5 font-heading text-[19px] font-semibold max-sm:text-[17.5px]">{title}</h3>

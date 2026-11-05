@@ -4,11 +4,11 @@ import Footer from './Footer'
 import ScrollToTop from './ScrollToTop'
 import PageTransition from './PageTransition'
 
-export default function Layout() {
+export default function Layout({ theme, onThemeToggle }) {
   const { pathname } = useLocation()
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
-      <Header />
+      <Header theme={theme} onThemeToggle={onThemeToggle} />
       <ScrollToTop />
       <main className="flex-1">
         <PageTransition key={pathname}>

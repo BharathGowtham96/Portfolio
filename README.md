@@ -28,6 +28,8 @@ Requires Node 18+ (Node 20 recommended).
 
 Secondary routes are lazy-loaded (code-split).
 
+Use the sun/moon button in the header to switch between dark and light themes. Your choice is saved in local storage.
+
 ## Project structure
 
 ```
@@ -61,7 +63,7 @@ src/
 ## Customising
 
 - **Content:** edit `src/data/portfolio.js`.
-- **Colors / fonts:** `tailwind.config.js` (`canvas`, `surface`, `ink`, `muted`, `line`, `accent`).
+- **Colors / fonts:** `tailwind.config.js` (`canvas`, `surface`, `ink`, `muted`, `line`, `accent`) and the theme variables in `src/index.css`.
 - **Fonts** are loaded from Google Fonts in `index.html`.
 
 ## Deploying

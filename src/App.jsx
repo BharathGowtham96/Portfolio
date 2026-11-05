@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -11,10 +11,32 @@ const Contact = lazy(() => import('./pages/Contact'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = window.localStorage.getItem('portfolio-theme')
+    const initialTheme = savedTheme === 'light' ? 'light' : 'dark'
+    document.documentElement.dataset.theme = initialTheme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      'content',
+      initialTheme === 'dark' ? '#0F172A' : '#F8FAFC',
+    )
+    return initialTheme
+  })
+
+  function toggleTheme() {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    window.localStorage.setItem('portfolio-theme', nextTheme)
+    document.documentElement.dataset.theme = nextTheme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      'content',
+      nextTheme === 'dark' ? '#0F172A' : '#F8FAFC',
+    )
+    setTheme(nextTheme)
+  }
+
   return (
     <Suspense fallback={null}>
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<Layout theme={theme} onThemeToggle={toggleTheme} />}>
           <Route index element={<Home />} />
           <Route path="experience" element={<Experience />} />
           <Route path="skills" element={<Skills />} />

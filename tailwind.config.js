@@ -5,13 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#0F172A',
-        surface: '#1E293B',
-        ink: '#F8FAFC',
-        muted: '#94A3B8',
-        line: '#2A3A50',
-        accent: { DEFAULT: '#38BDF8', soft: '#12324A' },
-        gold: '#34D399',
+        canvas: 'rgb(var(--color-canvas) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        ink: 'rgb(var(--color-ink) / <alpha-value>)',
+        muted: 'rgb(var(--color-muted) / <alpha-value>)',
+        line: 'rgb(var(--color-line) / <alpha-value>)',
+        accent: {
+          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
+          soft: 'rgb(var(--color-accent-soft) / <alpha-value>)',
+        },
+        gold: 'rgb(var(--color-gold) / <alpha-value>)',
       },
       fontFamily: {
         heading: ['"Space Grotesk"', '-apple-system', 'sans-serif'],

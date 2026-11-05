@@ -3,6 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: dark;
+    --color-canvas: 15 23 42;
+    --color-surface: 30 41 59;
+    --color-ink: 248 250 252;
+    --color-muted: 148 163 184;
+    --color-line: 42 58 80;
+    --color-accent: 56 189 248;
+    --color-accent-soft: 18 50 74;
+    --color-gold: 52 211 153;
+  }
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --color-canvas: 248 250 252;
+    --color-surface: 255 255 255;
+    --color-ink: 15 23 42;
+    --color-muted: 71 85 105;
+    --color-line: 203 213 225;
+    --color-accent: 2 132 199;
+    --color-accent-soft: 224 242 254;
+    --color-gold: 5 150 105;
+  }
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -17,8 +39,8 @@
     line-height: 1.55;
     overflow-x: hidden;
     background-image:
-      radial-gradient(900px 480px at 82% -10%, color-mix(in srgb, theme('colors.accent.DEFAULT') 16%, transparent), transparent 65%),
-      linear-gradient(180deg, color-mix(in srgb, theme('colors.accent.soft') 60%, theme('colors.canvas')) 0%, theme('colors.canvas') 340px);
+      radial-gradient(900px 480px at 82% -10%, rgb(var(--color-accent) / 0.16), transparent 65%),
+      linear-gradient(180deg, color-mix(in srgb, rgb(var(--color-accent-soft)) 60%, rgb(var(--color-canvas))) 0%, rgb(var(--color-canvas)) 340px);
     background-repeat: no-repeat;
   }
   img, svg, video {
