@@ -13,6 +13,7 @@
     --color-accent: 56 189 248;
     --color-accent-soft: 18 50 74;
     --color-gold: 52 211 153;
+    --background-overlay: rgb(15 23 42 / 0.62);
   }
   :root[data-theme='light'] {
     color-scheme: light;
@@ -24,6 +25,7 @@
     --color-accent: 2 132 199;
     --color-accent-soft: 224 242 254;
     --color-gold: 5 150 105;
+    --background-overlay: rgb(248 250 252 / 0.78);
   }
   html {
     -webkit-text-size-adjust: 100%;
@@ -40,7 +42,12 @@
     overflow-x: hidden;
     background-image:
       radial-gradient(900px 480px at 82% -10%, rgb(var(--color-accent) / 0.16), transparent 65%),
-      linear-gradient(180deg, color-mix(in srgb, rgb(var(--color-accent-soft)) 60%, rgb(var(--color-canvas))) 0%, rgb(var(--color-canvas)) 340px);
+      linear-gradient(180deg, color-mix(in srgb, rgb(var(--color-accent-soft)) 45%, transparent) 0%, rgb(var(--color-canvas) / 0.35) 340px),
+      linear-gradient(var(--background-overlay), var(--background-overlay)),
+      url('/portfolio-background.jpg');
+    background-size: auto, auto, auto, cover;
+    background-position: center;
+    background-attachment: scroll, scroll, scroll, fixed;
     background-repeat: no-repeat;
   }
   img, svg, video {
