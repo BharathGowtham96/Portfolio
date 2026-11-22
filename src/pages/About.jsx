@@ -5,6 +5,8 @@ import PageHeader from '../components/PageHeader'
 import Button from '../components/Button'
 import { profile, education } from '../data/portfolio'
 
+const resumeUrl = `${import.meta.env.BASE_URL}Bharath-Gowtham-Resume.pdf`
+
 export default function About() {
   const root = useRef(null)
 
@@ -51,7 +53,7 @@ export default function About() {
           </ul>
           <div className="mt-5 flex flex-col gap-2.5">
             <Button
-              href="/Bharath-Gowtham-Resume.pdf"
+              href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full"
@@ -59,7 +61,7 @@ export default function About() {
               View resume
             </Button>
             <Button
-              href="/Bharath-Gowtham-Resume.pdf"
+              href={resumeUrl}
               download="Bharath-Gowtham-Resume.pdf"
               variant="ghost"
               className="w-full"
