@@ -5,6 +5,7 @@ import Home from './pages/Home'
 
 // Code-split the secondary routes
 const Skills = lazy(() => import('./pages/Skills'))
+const About = lazy(() => import('./pages/About'))
 const Experience = lazy(() => import('./pages/Experience'))
 const Projects = lazy(() => import('./pages/Projects'))
 const Contact = lazy(() => import('./pages/Contact'))
@@ -38,6 +39,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout theme={theme} onThemeToggle={toggleTheme} />}>
           <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
           <Route path="experience" element={<Experience />} />
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />

@@ -5,9 +5,13 @@ export const profile = {
   location: 'Chennai, India',
   intro:
     'Five years building web and mobile applications end to end — from React and Angular interfaces through Node.js and Python APIs to the databases behind them. Started in electronics, ended up shipping software.',
+  about:
+    'Full-stack developer with five years of experience building responsive web and mobile products across frontend, backend, databases and cloud services. I enjoy turning complex workflows into reliable, maintainable applications and working closely with teams to ship practical solutions.',
+  focus: ['End-to-end product development', 'Scalable full-stack systems', 'Cross-platform web and mobile experiences'],
 }
 
 export const navLinks = [
+  { to: '/about', label: 'About' },
   { to: '/experience', label: 'Work' },
   { to: '/skills', label: 'Skills' },
   { to: '/projects', label: 'Projects' },
@@ -23,6 +27,7 @@ export const spec = [
 ]
 
 export const exploreLinks = [
+  { to: '/about', index: '00', title: 'About', text: 'Experience, focus and the approach behind the work.' },
   { to: '/experience', index: '01', title: 'Work', text: 'Three roles — from an educational portal to multi-tenant attendance.' },
   { to: '/skills', index: '02', title: 'Skills', text: 'Frontend, backend, mobile, databases, cloud and tools.' },
   { to: '/projects', index: '03', title: 'Projects', text: 'Earlier builds: an e-commerce app and a SCADA monitor.' },
