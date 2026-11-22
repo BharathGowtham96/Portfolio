@@ -19,26 +19,45 @@ export default function Header({ theme, onThemeToggle }) {
   return (
     <header
       ref={root}
-      className="sticky top-0 z-10 border-b border-line bg-canvas/80 pt-[env(safe-area-inset-top,0px)] backdrop-blur-[10px] backdrop-saturate-[1.2] max-[480px]:landscape:static"
+      className="sticky top-0 z-10 border-b border-line/80 bg-canvas/75 pt-[env(safe-area-inset-top,0px)] shadow-[0_12px_40px_rgb(var(--color-canvas)/0.12)] backdrop-blur-xl backdrop-saturate-150 max-[480px]:landscape:static"
     >
       <div className="mx-auto flex max-w-[920px] items-center justify-between gap-3 px-6 py-3.5 max-sm:px-[18px] max-sm:py-2.5 max-[420px]:flex-col max-[420px]:items-stretch max-[420px]:gap-2 max-[420px]:px-3.5 max-[420px]:py-2 xl:max-w-[1040px] min-[1800px]:max-w-[1200px]">
-        <Link to="/" className="whitespace-nowrap text-sm font-semibold tracking-[-.01em] sm:text-[15px]">
-          {profile.shortName}
+        <Link
+          to="/"
+          className="group flex items-center gap-2.5 whitespace-nowrap text-sm font-semibold tracking-[-.01em] sm:text-[15px]"
+        >
+          <span className="relative flex size-8 items-center justify-center overflow-hidden rounded-full border border-accent/40 bg-accent-soft text-[11px] font-bold text-accent shadow-[0_0_18px_rgb(var(--color-accent)/0.14)]">
+            BG
+            <span className="absolute inset-x-1.5 bottom-0 h-px bg-accent/70 transition-[width] duration-300 group-hover:left-0 group-hover:right-0" />
+          </span>
+          <span>{profile.shortName}</span>
         </Link>
         <div className="flex min-w-0 items-center gap-2 max-[420px]:justify-between">
-          <nav className="no-scrollbar flex min-w-0 max-w-full gap-0.5 overflow-x-auto rounded-full border border-line bg-surface p-1 text-[13px] sm:text-[13.5px] max-[420px]:flex-1 max-[420px]:justify-between">
+          <nav className="no-scrollbar flex min-w-0 max-w-full gap-1 overflow-x-auto rounded-[14px] border border-line/90 bg-surface/75 p-1 text-[13px] shadow-[inset_0_1px_0_rgb(255_255_255/0.04),0_8px_24px_rgb(var(--color-canvas)/0.12)] backdrop-blur-md sm:text-[13.5px] max-[420px]:flex-1 max-[420px]:justify-between">
             {navLinks.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
                 className={({ isActive }) =>
                   [
-                    'whitespace-nowrap rounded-full px-3.5 py-[7px] transition-colors duration-200 max-sm:px-[11px] max-[420px]:flex-1 max-[420px]:px-1.5 max-[420px]:py-2 max-[420px]:text-center [@media(pointer:coarse)]:py-2.5',
-                    isActive ? 'bg-accent-soft text-ink' : 'text-muted hover:bg-accent-soft hover:text-ink',
+                    'group relative whitespace-nowrap rounded-[10px] px-3.5 py-[7px] transition-[color,background-color,box-shadow,transform] duration-200 max-sm:px-[11px] max-[420px]:flex-1 max-[420px]:px-1.5 max-[420px]:py-2 max-[420px]:text-center [@media(pointer:coarse)]:py-2.5',
+                    isActive
+                      ? 'bg-accent-soft text-ink shadow-[inset_0_0_0_1px_rgb(var(--color-accent)/0.16),0_4px_14px_rgb(var(--color-accent)/0.08)]'
+                      : 'text-muted hover:-translate-y-px hover:bg-accent-soft/60 hover:text-ink',
                   ].join(' ')
                 }
               >
-                {label}
+                {({ isActive }) => (
+                  <>
+                    <span>{label}</span>
+                    <span
+                      className={[
+                        'absolute bottom-1 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-accent transition-[width,opacity] duration-200',
+                        isActive ? 'w-3 opacity-100' : 'w-0 opacity-0',
+                      ].join(' ')}
+                    />
+                  </>
+                )}
               </NavLink>
             ))}
           </nav>
